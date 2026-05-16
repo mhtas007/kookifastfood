@@ -1,0 +1,6 @@
+{
+  "name": "Cookie Pizza Menu",
+  "description": "A professional digital menu for Cookie Pizza with an elegant orange theme and Kurdish RTL support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-kurdish: "Vazirmatn", system-ui, sans-serif;
+  --font-latin: "Inter", system-ui, sans-serif;
+  --color-brand-primary: #FF6B00;
+  --color-brand-dark: #E65A00;
+  --color-brand-secondary: #2D2D2D;
+  --color-brand-accent: #FFD200;
+  --color-brand-bg: #FFF5F0;
+  --color-brand-card: #FFFFFF;
+}
+
+body {
+  font-family: var(--font-kurdish);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-secondary);
+}
+
+/* Hide scrollbar for category list but allow scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
