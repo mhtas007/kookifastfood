@@ -23,35 +23,67 @@ export interface Category {
   items: MenuItem[];
 }
 
+export interface Branch {
+  id: string;
+  name: LocalizedString;
+  address: LocalizedString;
+  phone: string;
+  instagram: string;
+}
+
 export const uiTranslations = {
   ku: {
     digitalMenu: "مێنوی دیجیتاڵی پرۆفیشناڵ",
     recommended: "پێشنیارکراو",
     view: "بینین",
-    address: "📍 ناونیشان: هەولێر، شەقامی ٤٠ مەتری",
-    phone: "📞 پەیوەندی: ٠٧٥٠١٢٣٤٥٦٧",
     cart: "سەبەتەی کڕین",
-    item: "دانە"
+    item: "دانە",
+    ourBranches: "لقەکانمان",
+    contactUs: "پەیوەندیکردن"
   },
   en: {
     digitalMenu: "Professional Digital Menu",
     recommended: "Recommended",
     view: "View",
-    address: "📍 Address: Erbil, 40 Meter St.",
-    phone: "📞 Phone: 0750 123 4567",
     cart: "Cart",
-    item: "items"
+    item: "items",
+    ourBranches: "Our Branches",
+    contactUs: "Contact Us"
   },
   ar: {
     digitalMenu: "قائمة رقمية احترافية",
     recommended: "موصى به",
     view: "عرض",
-    address: "📍 العنوان: أربيل، شارع 40 متر",
-    phone: "📞 الهاتف: 0750 123 4567",
     cart: "سلة التسوق",
-    item: "عناصر"
+    item: "عناصر",
+    ourBranches: "فروعنا",
+    contactUs: "اتصل بنا"
   }
 };
+
+export const branchesData: Branch[] = [
+  {
+    id: 'soran',
+    name: { ku: 'سۆران', en: 'Soran', ar: 'سوران' },
+    address: { ku: 'تەنیشت حەفتەبازاڕ', en: 'Next to Hafta Bazar', ar: 'بجوار هفتة بازار' },
+    phone: '0750 281 4800',
+    instagram: 'kookifastfood4'
+  },
+  {
+    id: 'pirmam',
+    name: { ku: 'پیرمام', en: 'Pirmam', ar: 'بيرمام' },
+    address: { ku: 'ڕێگای دارە بزمارە', en: 'Dara Bzmara Road', ar: 'طريق دارة بزمارة' },
+    phone: '0750 745 7227',
+    instagram: 'kooki_fastfood'
+  },
+  {
+    id: 'bahirka',
+    name: { ku: 'بەحرکە', en: 'Bahirka', ar: 'بحركة' },
+    address: { ku: 'بەحرکە - هەولێر', en: 'Bahirka - Erbil', ar: 'بحركة - أربيل' },
+    phone: '0750 567 2211',
+    instagram: 'kooki.pizza.bahrka'
+  }
+];
 
 export const menuData: Category[] = [
   {
@@ -63,7 +95,7 @@ export const menuData: Category[] = [
         name: { ku: 'ڕۆیاڵ بەرگر', en: 'Royal Burger', ar: 'رويال برجر' },
         description: { ku: 'رۆیاڵ بەرگری تایبەت بە گۆشتی تازە', en: 'Special Royal Burger with fresh meat', ar: 'رويال برجر خاص مع لحم طازج' },
         price: { ku: '٦,٥٠٠ دینار', en: '6,500 IQD', ar: '٦,٥٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80',
+        image: 'https://disappointed-peach-vmsoktbqr1.edgeone.app/royal%20burger.jpg',
         isPopular: true,
       },
       {
@@ -78,14 +110,14 @@ export const menuData: Category[] = [
         name: { ku: 'ڕۆیاڵ چیکن بەرگر', en: 'Royal Chicken Burger', ar: 'رويال تشيكن برجر' },
         description: { ku: 'بەرگری مریشکی کریسپی نایاب', en: 'Premium crispy chicken burger', ar: 'برجر دجاج مقرمش ممتاز' },
         price: { ku: '٦,٥٠٠ دینار', en: '6,500 IQD', ar: '٦,٥٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1620055375535-64906001099f?auto=format&fit=crop&w=600&q=80',
+        image: 'https://disappointed-peach-vmsoktbqr1.edgeone.app/Royal%20crispy%20chicken%20burger.jpg',
       },
       {
         id: 'b4',
         name: { ku: 'ڕۆیاڵ چیکن چیز بەرگر', en: 'Royal Chicken Cheese Burger', ar: 'رويال تشيكن تشيز برجر' },
         description: { ku: 'بەرگری مریشک بە پەنیری تایبەت', en: 'Chicken burger with special cheese', ar: 'برجر دجاج مع جبن خاص' },
         price: { ku: '٧,٠٠٠ دینار', en: '7,000 IQD', ar: '٧,٠٠٠ دينار' },
-        image: 'https://still-blush-udh4ixbdsy.edgeone.app/royal-crispy-chicken-cheese.jpg',
+        image: 'https://disappointed-peach-vmsoktbqr1.edgeone.app/Royal%20crispy%20chicken%20cheese.jpg',
       }
     ]
   },
@@ -98,7 +130,7 @@ export const menuData: Category[] = [
         name: { ku: 'پیتزای گۆشت', en: 'Meat Pizza', ar: 'بيتزا باللحم' },
         description: { ku: 'پیتزایەکی بەتام بە گۆشتی فرێش و پەنیری مۆزارێلا', en: 'Delicious pizza with fresh meat and mozzarella cheese', ar: 'بيتزا لذيذة مع لحم طازج وجبنة موزاريلا' },
         price: { ku: '٧,٠٠٠ دینار', en: '7,000 IQD', ar: '٧,٠٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80',
+        image: 'https://disappointed-peach-vmsoktbqr1.edgeone.app/meat%20pizza.jpg',
         isPopular: true,
       },
       {
@@ -133,21 +165,21 @@ export const menuData: Category[] = [
         name: { ku: 'بافەلۆ فرایز', en: 'Buffalo Fries', ar: 'بافلو فرايز' },
         description: { ku: 'پەتاتە بە سۆسی بافەلۆی تیژ', en: 'Fries with spicy buffalo sauce', ar: 'بطاطس مع صلصة البافلو الحارة' },
         price: { ku: '٧,٠٠٠ دینار', en: '7,000 IQD', ar: '٧,٠٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80',
+        image: 'https://wonderful-gray-ouwwonsmxx.edgeone.app/buffalo-fries.jpg',
       },
       {
         id: 'f2',
         name: { ku: 'فارمەر فرایز', en: 'Farmer Fries', ar: 'فارمر فرايز' },
         description: { ku: 'پەتاتەی کریسپی تایبەت', en: 'Special crispy potato', ar: 'بطاطس مقرمشة خاصة' },
         price: { ku: '٦,٠٠٠ دینار', en: '6,000 IQD', ar: '٦,٠٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1625938146369-adc83368bda7?auto=format&fit=crop&w=600&q=80',
+        image: 'https://wonderful-gray-ouwwonsmxx.edgeone.app/farmer-fries.jpg',
       },
       {
         id: 'f3',
         name: { ku: 'فینگەر', en: 'Finger Fries', ar: 'أصابع البطاطس' },
         description: { ku: 'پەتاتەی سوورکراوەی سادە', en: 'Plain french fries', ar: 'بطاطس مقلية عادية' },
         price: { ku: '٢,٠٠٠ دینار', en: '2,000 IQD', ar: '٢,٠٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1630431341973-02e1b662cebc?auto=format&fit=crop&w=600&q=80',
+        image: 'https://wonderful-gray-ouwwonsmxx.edgeone.app/fries.jpg',
       }
     ]
   },
@@ -195,14 +227,14 @@ export const menuData: Category[] = [
         name: { ku: 'پێپسی قوتو', en: 'Pepsi Can', ar: 'بيبسي علبة' },
         description: { ku: 'پێپسی ساردی قوتو', en: 'Cold Pepsi can', ar: 'علبة بيبسي باردة' },
         price: { ku: '١,٠٠٠ دینار', en: '1,000 IQD', ar: '١,٠٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80',
+        image: 'https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=600&q=80',
       },
       {
         id: 'd2',
         name: { ku: 'ئاوی کانزایی', en: 'Water', ar: 'مياه معدنية' },
         description: { ku: 'ئاوی کانزایی سارد', en: 'Cold mineral water', ar: 'مياه معدنية باردة' },
         price: { ku: '٥٠٠ دینار', en: '500 IQD', ar: '٥٠٠ دينار' },
-        image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&q=80',
+        image: 'https://hq2.recyclist.co/wp-content/uploads/sites/2/2015/02/waterbottle-300x300.jpg',
       }
     ]
   }
