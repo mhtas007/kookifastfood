@@ -39,10 +39,26 @@ export default function App() {
 
   const [promoIndex, setPromoIndex] = useState(0);
 
+  // Preload crucial images
+  useEffect(() => {
+    const urlsToPreload = [
+      ...popularItems.map(item => item.image),
+      ...menuData[0].items.map(item => item.image)
+    ];
+    
+    // Unique URLs
+    const uniqueUrls = Array.from(new Set(urlsToPreload));
+    
+    uniqueUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, [popularItems]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000);
+    }, 2800);
     return () => clearTimeout(timer);
   }, []);
 
