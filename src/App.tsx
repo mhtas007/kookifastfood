@@ -56,6 +56,12 @@ export default function App() {
   }, [popularItems]);
 
   useEffect(() => {
+    // Remove the static initial splash from index.html manually
+    const initialSplash = document.getElementById('initial-splash');
+    if (initialSplash) {
+      initialSplash.style.display = 'none';
+    }
+    
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 2800);

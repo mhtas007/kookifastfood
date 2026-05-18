@@ -6,8 +6,54 @@
     <title>Kooki FastFood</title>
     <link rel="icon" type="image/png" href="https://particular-chocolate-6pci24tryv.edgeone.app/logo%20(7).png" />
     <link rel="preload" as="image" href="https://particular-chocolate-6pci24tryv.edgeone.app/logo%20(7).png" />
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        background-color: #2D2D2D; /* Same as bg-brand-secondary */
+        width: 100%;
+        height: 100%;
+      }
+      #initial-splash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2D2D2D;
+        z-index: 9999;
+      }
+      .initial-logo-container {
+        width: 8rem;
+        height: 8rem;
+        background-color: white;
+        border-radius: 2rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 25px 50px -12px rgba(255, 107, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      @media (min-width: 768px) {
+        .initial-logo-container {
+          width: 11rem;
+          height: 11rem;
+        }
+      }
+      .initial-logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    </style>
   </head>
   <body>
+    <div id="initial-splash">
+      <div class="initial-logo-container">
+        <img src="https://particular-chocolate-6pci24tryv.edgeone.app/logo%20(7).png" alt="Kooki FastFood" />
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

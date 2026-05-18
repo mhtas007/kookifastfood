@@ -158,7 +158,7 @@ export const menuData: Category[] = [
   },
   {
     id: 'fries',
-    name: { ku: 'پەتاتە و زیاتر', en: 'Fries & More', ar: 'بطاطس والمزيد' },
+    name: { ku: 'بافەلۆ و فینگەر', en: 'Buffalo & Fries', ar: 'بافلو وبطاطس' },
     items: [
       {
         id: 'f1',
